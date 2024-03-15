@@ -2,14 +2,8 @@ package com.capgemini.wsb.persistence.entity;
 
 import com.capgemini.wsb.persistence.enums.Specialization;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "DOCTOR")
@@ -28,6 +22,7 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	private String telephoneNumber;
 
+	@Column(nullable = true)
 	private String email;
 
 	@Column(nullable = false)
@@ -36,6 +31,15 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
+
+	@OneToMany(mappedBy = "doctor", orphanRemoval = true)
+	private Collection<VisitEntity> visits;
+
+	@OneToOne
+	@JoinTable(	name="DOCTOR_TO_ADDRESS",
+				joinColumns = @JoinColumn(name = "DOCTOR_ID"),
+				inverseJoinColumns = @JoinColumn(name="ADDRESS_ID"))
+	private AddressEntity addresses;
 
 	public Long getId() {
 		return id;
