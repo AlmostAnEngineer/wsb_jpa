@@ -2,6 +2,7 @@ package com.capgemini.wsb.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "address")
@@ -25,15 +26,7 @@ public class AddressEntity {
 	private String postalCode;
 
 	@OneToMany(mappedBy = "address", fetch = FetchType.EAGER)
-	Collection<DoctorToAdress> doctorToAddress;
-
-	public Collection<DoctorToAdress> getDoctorToAdresses() {
-		return doctorToAddress;
-	}
-
-	public void setDoctorToAdresses(Collection<DoctorToAdress> doctorToAdresses) {
-		this.doctorToAddress = doctorToAdresses;
-	}
+	Set<DoctorToAdress> doctorToAddress;
 
 	public Long getId() {
 		return id;

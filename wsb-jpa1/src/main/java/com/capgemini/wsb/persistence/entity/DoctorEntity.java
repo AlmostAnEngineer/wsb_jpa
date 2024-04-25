@@ -40,14 +40,6 @@ public class DoctorEntity {
 	@OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
 	Collection<DoctorToAdress> doctorToAddress;
 
-	public Collection<DoctorToAdress> getDoctorToAdress() {
-		return doctorToAddress;
-	}
-
-	public void setDoctorToAdress(Collection<DoctorToAdress> doctorToAdress) {
-		this.doctorToAddress = doctorToAdress;
-	}
-
 	public Collection<VisitEntity> getVisits() {
 		return visits;
 	}
