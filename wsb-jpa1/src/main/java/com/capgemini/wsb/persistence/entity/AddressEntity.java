@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "ADDRESS")
+@Table(name = "address")
 public class AddressEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id", nullable = false)
 	private Long id;
 
 	@Column(nullable = false)
@@ -23,8 +24,16 @@ public class AddressEntity {
 	@Column(nullable = false)
 	private String postalCode;
 
-	@OneToMany(mappedBy = "address")
-	Collection<DoctorToAdress> doctorToAdresses;
+	@OneToMany(mappedBy = "address", fetch = FetchType.EAGER)
+	Collection<DoctorToAdress> doctorToAddress;
+
+	public Collection<DoctorToAdress> getDoctorToAdresses() {
+		return doctorToAddress;
+	}
+
+	public void setDoctorToAdresses(Collection<DoctorToAdress> doctorToAdresses) {
+		this.doctorToAddress = doctorToAdresses;
+	}
 
 	public Long getId() {
 		return id;

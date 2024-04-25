@@ -7,11 +7,12 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
-@Table(name = "DOCTOR")
+@Table(name = "doctor")
 public class DoctorEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id", nullable = false)
 	private Long id;
 
 	@Column(nullable = false)
@@ -36,8 +37,24 @@ public class DoctorEntity {
 	@OneToMany(mappedBy = "doctor", orphanRemoval = true)
 	private Collection<VisitEntity> visits;
 
-	@OneToMany(mappedBy = "doctor")
-	Collection<DoctorToAdress> doctorToAdress;
+	@OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
+	Collection<DoctorToAdress> doctorToAddress;
+
+	public Collection<DoctorToAdress> getDoctorToAdress() {
+		return doctorToAddress;
+	}
+
+	public void setDoctorToAdress(Collection<DoctorToAdress> doctorToAdress) {
+		this.doctorToAddress = doctorToAdress;
+	}
+
+	public Collection<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(Collection<VisitEntity> visits) {
+		this.visits = visits;
+	}
 
 	public Long getId() {
 		return id;
