@@ -25,8 +25,11 @@ public class AddressEntity {
 	@Column(nullable = false)
 	private String postalCode;
 
-	@OneToMany(mappedBy = "address", fetch = FetchType.EAGER)
-	Set<DoctorToAdress> doctorToAddress;
+	@OneToMany(mappedBy = "address")
+	private Collection<DoctorEntity> doctors;
+
+	@OneToMany(mappedBy = "address")
+	private Collection<PatientEntity> patients;
 
 	public Long getId() {
 		return id;
@@ -68,4 +71,19 @@ public class AddressEntity {
 		this.postalCode = postalCode;
 	}
 
+	public Collection<DoctorEntity> getDoctors() {
+		return doctors;
+	}
+
+	public void setDoctors(Collection<DoctorEntity> doctors) {
+		this.doctors = doctors;
+	}
+
+	public Collection<PatientEntity> getPatients() {
+		return patients;
+	}
+
+	public void setPatients(Collection<PatientEntity> patients) {
+		this.patients = patients;
+	}
 }

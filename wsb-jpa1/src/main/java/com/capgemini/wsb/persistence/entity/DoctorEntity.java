@@ -30,15 +30,16 @@ public class DoctorEntity {
 	@Column(nullable = false)
 	private String doctorNumber;
 
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	private AddressEntity address;
+
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
 
 	@OneToMany(mappedBy = "doctor", orphanRemoval = true)
 	private Collection<VisitEntity> visits;
-
-	@OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER)
-	Collection<DoctorToAdress> doctorToAddress;
 
 	public Collection<VisitEntity> getVisits() {
 		return visits;
@@ -104,4 +105,11 @@ public class DoctorEntity {
 		this.specialization = specialization;
 	}
 
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
 }

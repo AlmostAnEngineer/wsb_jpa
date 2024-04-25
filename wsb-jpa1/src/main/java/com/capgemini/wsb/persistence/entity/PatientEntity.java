@@ -31,11 +31,9 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
-	@OneToOne
-	@JoinTable(	name="PATIENT_TO_ADDRESS",
-			joinColumns = @JoinColumn(name = "PATIENT_ID"),
-			inverseJoinColumns = @JoinColumn(name="ADDRESS_ID"))
-	private AddressEntity addresses;
+	@ManyToOne
+	@JoinColumn(name = "address_id")
+	private AddressEntity address;
 
 	@OneToMany(mappedBy = "patient", orphanRemoval = true)
 	private Collection<VisitEntity> visits;
@@ -96,4 +94,19 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
+
+	public Collection<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(Collection<VisitEntity> visits) {
+		this.visits = visits;
+	}
 }

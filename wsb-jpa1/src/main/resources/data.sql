@@ -4,11 +4,11 @@ VALUES (1, '123 Main St', 'Apt 4', 'New City', '12345'),
        (3, '789 Oak St', 'Suite 2', 'Lakeside', '54321'),
        (4, '321 Elm St', NULL, 'River City', '98765');
 
-INSERT INTO DOCTOR (id, first_name, last_name, telephone_number, email, specialization, doctor_number)
-VALUES (1, 'John', 'Doe', '123456789', 'johndoe@example.com', 'CARDIOLOGY', 'D001'),
-       (2, 'Jane', 'Smith', '987654321', 'janesmith@example.com', 'DERMATOLOGY', 'D002'),
-       (3, 'Emily', 'Johnson', '5647382910', NULL, 'NEUROLOGY', 'D003'),
-       (4, 'Mike', 'Brown', '123987456', 'mikebrown@example.com', 'ORTHOPEDICS', 'D004');
+INSERT INTO DOCTOR (id, first_name, last_name, telephone_number, email, specialization, doctor_number, address_id)
+VALUES (1, 'John', 'Doe', '123456789', 'johndoe@example.com', 'CARDIOLOGY', 'D001', '1'),
+       (2, 'Jane', 'Smith', '987654321', 'janesmith@example.com', 'DERMATOLOGY', 'D002', '1'),
+       (3, 'Emily', 'Johnson', '5647382910', NULL, 'NEUROLOGY', 'D003', '3'),
+       (4, 'Mike', 'Brown', '123987456', 'mikebrown@example.com', 'ORTHOPEDICS', 'D004', '2');
 
 INSERT INTO PATIENT (id, first_name, last_name, telephone_number, email, patient_number, date_of_birth)
 VALUES (1, 'Alice', 'Wong', '321654987', 'alicewong@example.com', 'P1001', '1985-07-16'),
@@ -27,3 +27,5 @@ VALUES (1, 'Blood test', 1),
        (2, 'Skin biopsy', 2),
        (3, 'MRI scan', 3),
        (4, 'X-ray', 4);
+
+
