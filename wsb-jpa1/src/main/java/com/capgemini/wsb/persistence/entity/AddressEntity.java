@@ -23,11 +23,8 @@ public class AddressEntity {
 	@Column(nullable = false)
 	private String postalCode;
 
-//	@OneToOne(mappedBy = "PATIENT", orphanRemoval = true)
-//	private Collection<DoctorEntity> patients;
-//
-//	@OneToOne(mappedBy = "DOCTOR")
-//	private Collection<PatientEntity> doctors;
+	@OneToMany(mappedBy = "address")
+	Collection<DoctorToAdress> doctorToAdresses;
 
 	public Long getId() {
 		return id;

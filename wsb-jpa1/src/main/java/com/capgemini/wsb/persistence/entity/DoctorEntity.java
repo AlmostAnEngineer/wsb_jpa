@@ -4,6 +4,7 @@ import com.capgemini.wsb.persistence.enums.Specialization;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "DOCTOR")
@@ -35,11 +36,8 @@ public class DoctorEntity {
 	@OneToMany(mappedBy = "doctor", orphanRemoval = true)
 	private Collection<VisitEntity> visits;
 
-	@OneToOne
-	@JoinTable(	name="DOCTOR_TO_ADDRESS",
-				joinColumns = @JoinColumn(name = "DOCTOR_ID"),
-				inverseJoinColumns = @JoinColumn(name="ADDRESS_ID"))
-	private AddressEntity addresses;
+	@OneToMany(mappedBy = "doctor")
+	Collection<DoctorToAdress> doctorToAdress;
 
 	public Long getId() {
 		return id;
