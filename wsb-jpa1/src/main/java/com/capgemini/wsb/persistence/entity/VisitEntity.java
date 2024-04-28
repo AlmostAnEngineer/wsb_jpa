@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "VISIT")
@@ -54,16 +55,16 @@ public class VisitEntity {
 		this.time = time;
 	}
 
-	public DoctorEntity getDoctor() {
-		return doctor;
+	public Long getDoctor() {
+		return doctor.getId();
 	}
 
 	public void setDoctor(DoctorEntity doctor) {
 		this.doctor = doctor;
 	}
 
-	public PatientEntity getPatient() {
-		return patient;
+	public Long getPatient() {
+		return patient.getId();
 	}
 
 	public void setPatient(PatientEntity patient) {

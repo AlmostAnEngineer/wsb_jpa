@@ -1,6 +1,7 @@
 package com.capgemini.wsb.persistence.entity;
 
 import com.capgemini.wsb.persistence.enums.TreatmentType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -21,6 +22,7 @@ public class MedicalTreatmentEntity {
 	@ManyToOne
 	@JoinColumn(name="VISIT_ID")
 	private VisitEntity visit;
+
 
 	public Long getId() {
 		return id;
@@ -46,6 +48,7 @@ public class MedicalTreatmentEntity {
 		this.type = type;
 	}
 
+	@JsonIgnore
 	public VisitEntity getVisit() {
 		return visit;
 	}
