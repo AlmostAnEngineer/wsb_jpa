@@ -1,13 +1,17 @@
 package com.capgemini.wsb.service;
 
 import com.capgemini.wsb.WsbJpaApplication;
+import com.capgemini.wsb.dto.DoctorTO;
+import com.capgemini.wsb.mapper.DoctorMapper;
 import com.capgemini.wsb.mapper.PatientMapper;
+import com.capgemini.wsb.persistence.dao.impl.DoctorDaoImpl;
 import com.capgemini.wsb.persistence.entity.PatientEntity;
 import com.capgemini.wsb.service.PatientService;
 import com.capgemini.wsb.persistence.entity.DoctorEntity;
 import com.capgemini.wsb.persistence.dao.DoctorDao;
 import com.capgemini.wsb.dto.PatientTO;
 
+import com.capgemini.wsb.service.impl.DoctorServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +30,11 @@ public class PatientServiceTest
     @Autowired
     private PatientService patientService;
     private PatientMapper patientMapper;
-    private DoctorDao doctorDao;
+    private DoctorDao doctorDao = new DoctorDaoImpl();
+    private DoctorService doctorService = new DoctorServiceImpl(doctorDao);
 
     @Transactional
+    @DirtiesContext
     @Test
     public void testShouldFindPatientById()
     {
@@ -47,7 +53,9 @@ public class PatientServiceTest
         PatientTO patientTO = patientService.findById(1L);
         PatientEntity patientEntity = patientMapper.mapToEntity(patientTO);
         assertThat(patientEntity).isNull();
-        DoctorEntity doctorEntity = doctorDao.findOne(1L);
+        DoctorTO doctorTO = doctorService.findById(1L);
+        DoctorEntity doctorEntity = DoctorMapper.mapToEntity(doctorTO);
         assertThat(doctorEntity).isNotNull();
+
     }
 }
