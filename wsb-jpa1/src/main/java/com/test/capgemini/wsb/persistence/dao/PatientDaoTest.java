@@ -29,4 +29,25 @@ public class PatientDaoTest
         assertThat(foundPatients).isNotNull();
         assertThat(foundPatients.size()).isEqualTo(1);
     }
+
+    @Transactional
+    @Test
+    public void shoudGivePatientsWithMoreVisitsThanX()
+    {
+        List<PatientEntity> foundPatients = patientDao.findPatientsWithMoreVisitsThan(3);
+        assertThat(foundPatients).isNotNull();
+        assertThat(foundPatients).isEmpty();
+    }
+
+    @Transactional
+    @Test
+    public void shoudGivePatientsWithSpecificHistoryWord()
+    {
+        List<PatientEntity> foundPatients = patientDao.findPatientsWithSpecyficWordInHistory("ziemniaki");
+        assertThat(foundPatients).isNotNull();
+        assertThat(foundPatients).isEmpty();
+        foundPatients = patientDao.findPatientsWithSpecyficWordInHistory("ogórki");
+        assertThat(foundPatients).isNotNull();
+        assertThat(foundPatients).isNotEmpty();
+    }
 }
