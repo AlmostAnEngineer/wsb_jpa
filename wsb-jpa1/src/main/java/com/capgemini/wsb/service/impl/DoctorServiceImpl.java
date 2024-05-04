@@ -6,6 +6,8 @@ import com.capgemini.wsb.dto.DoctorTO;
 import com.capgemini.wsb.persistence.entity.DoctorEntity;
 import com.capgemini.wsb.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 public class DoctorServiceImpl implements DoctorService
 {

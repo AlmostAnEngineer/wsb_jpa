@@ -1,5 +1,6 @@
-package com.capgemini.wsb.persistance.dao;
+package com.test.capgemini.wsb.persistence.dao;
 
+import com.capgemini.wsb.WsbJpaApplication;
 import com.capgemini.wsb.persistence.dao.AddressDao;
 import com.capgemini.wsb.persistence.entity.AddressEntity;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = WsbJpaApplication.class)
 public class AddressDaoTest
 {
     @Autowired
