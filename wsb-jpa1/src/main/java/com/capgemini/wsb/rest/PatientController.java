@@ -21,6 +21,13 @@ public class PatientController
     PatientTO findById(@PathVariable final Long id)
     {
         final PatientTO patient = patientService.findById(id);
+        var visits = patient.getVisits();
+        for(var visit: visits)
+        {
+            visit.getDoctor().setVisits(null);
+            visit.getDoctor().setAddress(null);
+            visit.setPatient(null);
+        }
         if(patient != null)
         {
             return patient;

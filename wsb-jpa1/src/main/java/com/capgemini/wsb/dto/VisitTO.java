@@ -6,6 +6,8 @@ import com.capgemini.wsb.persistence.entity.DoctorEntity;
 import com.capgemini.wsb.persistence.entity.MedicalTreatmentEntity;
 import com.capgemini.wsb.persistence.entity.PatientEntity;
 import com.capgemini.wsb.persistence.entity.VisitEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -15,7 +17,9 @@ public class VisitTO
     private Long id;
     private String description;
     private LocalDateTime time;
+    @JsonIgnoreProperties({"doctor"})
     private DoctorEntity doctor;
+    @JsonIgnoreProperties({"patientEntity"})
     private PatientEntity patientEntity;
     private Collection<MedicalTreatmentEntity> tratments;
 
@@ -27,6 +31,7 @@ public class VisitTO
         this.tratments = tratments;
     }
 
+    @JsonIgnore
     public PatientEntity getPatientEntity() {
         return patientEntity;
     }
@@ -34,7 +39,7 @@ public class VisitTO
     public void setPatientEntity(PatientEntity patientEntity) {
         this.patientEntity = patientEntity;
     }
-
+    @JsonIgnore
     public DoctorEntity getDoctor() {
         return doctor;
     }
