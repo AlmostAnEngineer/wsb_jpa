@@ -55,16 +55,16 @@ public class VisitEntity {
 		this.time = time;
 	}
 
-	public Long getDoctor() {
-		return doctor.getId();
+	public DoctorEntity getDoctor() {
+		return doctor;
 	}
 
 	public void setDoctor(DoctorEntity doctor) {
 		this.doctor = doctor;
 	}
 
-	public Long getPatient() {
-		return patient.getId();
+	public PatientEntity getPatient() {
+		return patient;
 	}
 
 	public void setPatient(PatientEntity patient) {
