@@ -8,7 +8,11 @@ import com.capgemini.wsb.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional
 public class DoctorServiceImpl implements DoctorService
 {
     private final DoctorDao doctorDao;

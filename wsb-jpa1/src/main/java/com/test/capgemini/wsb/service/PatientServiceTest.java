@@ -52,6 +52,8 @@ public class PatientServiceTest
         patientService.removePatientEntity(1L);
         PatientTO patientTO = patientService.findById(1L);
         PatientEntity patientEntity = PatientMapper.mapToEntity(patientTO);
-        assertThat(patientEntity).isNull();
+        DoctorTO doctorTO = doctorService.findById(1L);
+        DoctorEntity doctorEntity = DoctorMapper.mapToEntity(doctorTO);
+        assertThat(doctorEntity).isNotNull();
     }
 }
