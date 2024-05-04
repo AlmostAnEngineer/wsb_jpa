@@ -19,6 +19,17 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private String lastName;
 
+	public String getPatientHistory() {
+		return patientHistory;
+	}
+
+	public void setPatientHistory(String patientHistory) {
+		this.patientHistory = patientHistory;
+	}
+
+	@Column(nullable = true)
+	private String patientHistory;
+
 	@Column(nullable = false)
 	private String telephoneNumber;
 

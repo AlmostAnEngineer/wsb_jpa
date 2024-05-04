@@ -23,6 +23,7 @@ public final class PatientMapper
         patientTO.setFirstName(patientEntity.getFirstName());
         patientTO.setVisits(patientEntity.getVisits());
         patientTO.setTelephoneNumber(patientEntity.getTelephoneNumber());
+        patientTO.setPatientHistory(patientEntity.getPatientHistory());
         return patientTO;
     }
 
@@ -42,6 +43,7 @@ public final class PatientMapper
         patientEntity.setFirstName(patientTO.getFirstName());
         patientEntity.setVisits(patientTO.getVisits());
         patientEntity.setTelephoneNumber(patientTO.getTelephoneNumber());
+        patientEntity.setPatientHistory(patientTO.getPatientHistory());
         return patientEntity;
     }
 }

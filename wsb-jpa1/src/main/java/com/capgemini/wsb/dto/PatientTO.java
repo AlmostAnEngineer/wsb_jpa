@@ -15,6 +15,7 @@ public class PatientTO {
     private String patientNumber;
     private LocalDate dateOfBirth;
     private AddressEntity address;
+    private String patientHistory;
     private Collection<VisitEntity> visits;
 
     public Long getId() {
@@ -87,6 +88,14 @@ public class PatientTO {
 
     public void setVisits(Collection<VisitEntity> visits) {
         this.visits = visits;
+    }
+
+    public String getPatientHistory() {
+        return patientHistory;
+    }
+
+    public void setPatientHistory(String patientHistory) {
+        this.patientHistory = patientHistory;
     }
 }
 
