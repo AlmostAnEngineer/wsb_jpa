@@ -2,6 +2,7 @@ package com.capgemini.wsb.persistence.entity;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -46,7 +47,7 @@ public class PatientEntity {
 	@JoinColumn(name = "address_id")
 	private AddressEntity address;
 
-	@OneToMany(mappedBy = "patient", orphanRemoval = true)
+	@OneToMany(mappedBy = "patient", orphanRemoval = true, fetch = FetchType.EAGER)
 	private Collection<VisitEntity> visits;
 
 	public Long getId() {

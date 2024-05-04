@@ -23,6 +23,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -63,5 +64,13 @@ public class PatientServiceTest
         VisitTO visitTO = visitService.findById(1L);
         VisitEntity visitEntity = VisitMapper.TOtoMap(visitTO);
         assertThat(visitEntity).isNull();
+    }
+
+    @Test
+    public void testShoudGiveAllPatientVisitsWithId()
+    {
+        Collection<VisitEntity> visits = patientService.findVisitsById(1L);
+        assertThat(visits).isNotNull();
+        assertThat(visits).isNotEmpty();
     }
 }

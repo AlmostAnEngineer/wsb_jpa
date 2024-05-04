@@ -5,6 +5,7 @@ import com.capgemini.wsb.persistence.entity.VisitEntity;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 public class PatientTO {
     private Long id;
