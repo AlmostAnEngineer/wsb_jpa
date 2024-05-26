@@ -46,6 +46,7 @@ public class PatientDaoTest
         List<PatientEntity> foundPatients = patientDao.findPatientsWithSpecyficWordInHistory("ziemniaki");
         assertThat(foundPatients).isNotNull();
         assertThat(foundPatients).isEmpty();
+
         foundPatients = patientDao.findPatientsWithSpecyficWordInHistory("ogórki");
         assertThat(foundPatients).isNotNull();
         assertThat(foundPatients).isNotEmpty();
