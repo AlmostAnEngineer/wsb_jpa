@@ -21,6 +21,7 @@ public final class DoctorMapper
         doctorTO.setFirstName(doctorEntity.getFirstName());
         doctorTO.setVisits(doctorEntity.getVisits());
         doctorTO.setLastName(doctorEntity.getLastName());
+        doctorTO.setSpecialization(doctorEntity.getSpecialization());
         return doctorTO;
     }
 
@@ -33,6 +34,7 @@ public final class DoctorMapper
         final DoctorEntity doctorEntity = new DoctorEntity();
         doctorEntity.setDoctorNumber(doctorTO.getDoctorNumber());
         doctorEntity.setAddress(doctorTO.getAddress());
+        doctorEntity.setSpecialization(doctorTO.getSpecialization());
         doctorEntity.setEmail(doctorTO.getEmail());
         doctorEntity.setId(doctorTO.getId());
         doctorEntity.setTelephoneNumber(doctorTO.getTelephoneNumber());

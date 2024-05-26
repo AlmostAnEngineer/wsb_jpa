@@ -2,6 +2,7 @@ package com.capgemini.wsb.dto;
 
 import com.capgemini.wsb.persistence.entity.AddressEntity;
 import com.capgemini.wsb.persistence.entity.VisitEntity;
+import com.capgemini.wsb.persistence.enums.Specialization;
 
 import java.util.Collection;
 
@@ -15,6 +16,7 @@ public class DoctorTO
     private String doctorNumber;
     private AddressEntity address;
     private Collection<VisitEntity> visits;
+    private Specialization specialization;
 
     public Long getId() {
         return id;
@@ -79,4 +81,13 @@ public class DoctorTO
     public void setVisits(Collection<VisitEntity> visits) {
         this.visits = visits;
     }
+
+    public Specialization getSpecialization() {
+        return specialization;
+    }
+
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
+    }
+
 }
