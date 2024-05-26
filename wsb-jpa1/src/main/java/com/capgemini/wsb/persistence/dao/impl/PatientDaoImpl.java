@@ -12,7 +12,7 @@ public class PatientDaoImpl extends  AbstractDao<PatientEntity, Long> implements
     @Override
     public List<PatientEntity> findByLastName(String lastName)
     {
-        List<PatientEntity> patients;
+        List<PatientEntity> patients;;
         patients = entityManager.createQuery("SELECT p FROM PatientEntity p " +
                                 "WHERE p.lastName LIKE :lastName"
                 , PatientEntity.class)
